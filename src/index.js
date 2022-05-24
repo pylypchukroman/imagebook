@@ -41,3 +41,8 @@ function onSearchForm(e) {
     })
     .catch(error => console.log(error));
 }
+window.onload = function () {
+  Draggable.create('.gallery', {
+    bounds: 'body',
+  });
+};
