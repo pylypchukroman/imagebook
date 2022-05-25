@@ -8,8 +8,9 @@ import { gsap, ScrollTrigger, Draggable, MotionPathPlugin } from 'gsap/all';
 gsap.registerPlugin(ScrollTrigger, Draggable, MotionPathPlugin);
 
 const searchForm = document.querySelector('#search-form');
-const gallery = document.querySelector('.gallery');
+const gallery = document.querySelector('#gallery');
 const searchline = document.querySelector('.search-wrapper');
+const loading = document.querySelector('#loading');
 
 searchForm.addEventListener('submit', onSearchForm);
 
@@ -23,6 +24,13 @@ function onSearchForm(e) {
   query = e.currentTarget.searchQuery.value.trim();
   gallery.innerHTML = '';
   searchline.classList.add('visually-hiden');
+  loading.classList.remove('hiden');
+  loading.classList.add('loading');
+  setTimeout(() => {
+    gallery.classList.remove('hiden');
+    gallery.classList.add('gallery');
+    loading.classList.add('visually-hiden');
+  }, 3000);
 
   if (query === '') {
     Notiflix.Notify.failure('The search string cannot be empty. Please specify your search query.');
@@ -44,9 +52,9 @@ function onSearchForm(e) {
     .catch(error => console.log(error));
 }
 window.onload = function () {
-  document.body.classList.add('loaded');
+  // document.body.classList.add('loaded');
   setTimeout(() => {
-    Draggable.create('.gallery', {
+    Draggable.create('.main-gallery', {
       bounds: 'body',
     });
   }, 200);
