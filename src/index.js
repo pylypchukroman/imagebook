@@ -31,7 +31,7 @@ function onSearchForm(e) {
     gallery.classList.replace('hiden', 'gallery');
     loading.classList.add('visually-hiden');
     newSearchBtn.classList.replace('hiden', 'new-search-btn');
-  }, 2500);
+  }, 5000);
 
   if (query === '') {
     Notiflix.Notify.failure('The search string cannot be empty. Please specify your search query.');
