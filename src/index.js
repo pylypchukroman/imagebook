@@ -11,8 +11,10 @@ const searchForm = document.querySelector('#search-form');
 const gallery = document.querySelector('#gallery');
 const searchline = document.querySelector('.search-wrapper');
 const loading = document.querySelector('#loading');
+const newSearchBtn = document.querySelector('#new-search-btn');
 
 searchForm.addEventListener('submit', onSearchForm);
+newSearchBtn.addEventListener('click', onNewSearch);
 
 let query = '';
 let page = 1;
@@ -24,13 +26,12 @@ function onSearchForm(e) {
   query = e.currentTarget.searchQuery.value.trim();
   gallery.innerHTML = '';
   searchline.classList.add('visually-hiden');
-  loading.classList.remove('hiden');
-  loading.classList.add('loading');
+  loading.classList.replace('hiden', 'loading');
   setTimeout(() => {
-    gallery.classList.remove('hiden');
-    gallery.classList.add('gallery');
+    gallery.classList.replace('hiden', 'gallery');
     loading.classList.add('visually-hiden');
-  }, 3000);
+    newSearchBtn.classList.replace('hiden', 'new-search-btn');
+  }, 2500);
 
   if (query === '') {
     Notiflix.Notify.failure('The search string cannot be empty. Please specify your search query.');
@@ -50,6 +51,9 @@ function onSearchForm(e) {
       }
     })
     .catch(error => console.log(error));
+}
+function onNewSearch() {
+  document.location.reload();
 }
 window.onload = function () {
   // document.body.classList.add('loaded');
