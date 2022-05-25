@@ -1,6 +1,7 @@
 import './css/style.css';
 import { fetchImages } from './js/fetch-images';
 import { renderGallery } from './js/render-gallery';
+import { renderName } from './js/render-name';
 import Notiflix from 'notiflix';
 import 'simplelightbox/dist/simple-lightbox.min.css';
 import { gsap, ScrollTrigger, Draggable, MotionPathPlugin } from 'gsap/all';
@@ -36,13 +37,17 @@ function onSearchForm(e) {
         );
       } else {
         renderGallery(data.hits);
+        renderName(query);
         // Notiflix.Notify.success(`Hooray! We found ${data.totalHits} images.`);
       }
     })
     .catch(error => console.log(error));
 }
 window.onload = function () {
-  Draggable.create('.gallery', {
-    bounds: 'body',
-  });
+  document.body.classList.add('loaded');
+  setTimeout(() => {
+    Draggable.create('.gallery', {
+      bounds: 'body',
+    });
+  }, 200);
 };
