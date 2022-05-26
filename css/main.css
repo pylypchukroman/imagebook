@@ -81,9 +81,14 @@ p {
   background-color: var(--main-bg-color);
   padding: 10px;
   outline: none;
+  transition: 0.3s;
 }
 
 .search-form input:hover, .search-form input:focus {
+  transform: scale(1.03);
+}
+
+.search-form input:hover + .form-btn, .search-form input:focus + .form-btn {
   transform: scale(1.03);
 }
 
@@ -96,6 +101,7 @@ p {
   background-color: var(--serch-form-btn-bg);
   border-radius: 0 5px 5px 0;
   cursor: pointer;
+  transition: 0.3s;
 }
 
 .form-btn:hover, .form-btn:focus {
@@ -181,6 +187,11 @@ p {
 .new-search-img {
   width: 50px;
   height: 50px;
+}
+
+.load-more-btn {
+  margin-top: 200px;
+  z-index: 20000;
 }
 
 .header {

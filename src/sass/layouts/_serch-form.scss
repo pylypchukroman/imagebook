@@ -29,9 +29,16 @@
   background-color: var(--main-bg-color);
   padding: 10px;
   outline: none;
+  transition: 0.3s;
   &:hover,
   &:focus {
     transform: scale(1.03);
+  }
+  &:hover,
+  &:focus {
+    + .form-btn {
+      transform: scale(1.03);
+    }
   }
 }
 
@@ -44,6 +51,7 @@
   background-color: var(--serch-form-btn-bg);
   border-radius: 0 5px 5px 0;
   cursor: pointer;
+  transition: 0.3s;
   &:hover,
   &:focus {
     transform: scale(1.03);

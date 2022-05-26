@@ -6,6 +6,7 @@ import Notiflix from 'notiflix';
 import SimpleLightbox from 'simplelightbox';
 import 'simplelightbox/dist/simple-lightbox.min.css';
 import { gsap, ScrollTrigger, Draggable, MotionPathPlugin } from 'gsap/all';
+import { SSL_OP_ALLOW_UNSAFE_LEGACY_RENEGOTIATION } from 'constants';
 gsap.registerPlugin(ScrollTrigger, Draggable, MotionPathPlugin);
 
 const searchForm = document.querySelector('#search-form');
@@ -20,6 +21,7 @@ newSearchBtn.addEventListener('click', onNewSearch);
 let query = '';
 let page = 1;
 const perPage = 80;
+let loadinTimer;
 
 function onSearchForm(e) {
   e.preventDefault();
@@ -28,7 +30,7 @@ function onSearchForm(e) {
   gallery.innerHTML = '';
   searchline.classList.add('visually-hiden');
   loading.classList.replace('hiden', 'loading');
-  setTimeout(() => {
+  loadinTimer = setTimeout(() => {
     gallery.classList.replace('hiden', 'gallery');
     loading.classList.add('visually-hiden');
     newSearchBtn.classList.replace('hiden', 'new-search-btn');
@@ -51,15 +53,18 @@ function onSearchForm(e) {
       } else {
         renderGallery(data.hits);
         renderName(query);
-        simpleLightBox = new SimpleLightbox('.main-gallery a').refresh();
+        SimpleLightbox = new SimpleLightbox('.main-gallery a').refresh();
         Notiflix.Notify.success(`Hooray! We found ${data.totalHits} images. Just wait for loading`);
       }
     })
-    .catch(error => console.log(error));
+    .catch(error => error);
 }
+
 function onNewSearch() {
   document.location.reload();
+  clearTimeout(loadinTimer);
 }
+
 window.onload = function () {
   setTimeout(() => {
     Draggable.create('.main-gallery', {
