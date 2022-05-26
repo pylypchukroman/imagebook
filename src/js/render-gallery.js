@@ -6,10 +6,11 @@ function renderGallery(images) {
   const markup = images
     .map(image => {
       return `
+      <a href="${image.largeImageURL}">
           <div class="gallery-item">
             <img class="gallery-img" src="${image.largeImageURL}" alt="${image.tags}" loading="lazy" />
           </div>
-
+      </a>
       `;
     })
     .join('');

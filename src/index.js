@@ -3,6 +3,7 @@ import { fetchImages } from './js/fetch-images';
 import { renderGallery } from './js/render-gallery';
 import { renderName } from './js/render-name';
 import Notiflix from 'notiflix';
+import SimpleLightbox from 'simplelightbox';
 import 'simplelightbox/dist/simple-lightbox.min.css';
 import { gsap, ScrollTrigger, Draggable, MotionPathPlugin } from 'gsap/all';
 gsap.registerPlugin(ScrollTrigger, Draggable, MotionPathPlugin);
@@ -50,6 +51,7 @@ function onSearchForm(e) {
       } else {
         renderGallery(data.hits);
         renderName(query);
+        simpleLightBox = new SimpleLightbox('.main-gallery a').refresh();
         Notiflix.Notify.success(`Hooray! We found ${data.totalHits} images. Just wait for loading`);
       }
     })
