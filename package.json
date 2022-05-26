@@ -6,7 +6,7 @@
   "homepage": "https://pylypchukroman.github.io/imagebook",
   "scripts": {
     "dev": "parcel src/*.html",
-    "build": "parcel build src/*.html --public-url /goit-js-hw-11/"
+    "build": "parcel build src/*.html --public-url /imagebook/"
   },
   "repository": {
     "type": "git",
