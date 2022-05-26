@@ -1,0 +1,34 @@
+.gallery {
+  opacity: 1;
+  width: 30vw;
+  column-width: 2em;
+  gap: var(--gap);
+  transform: scale(9);
+  will-change: transform;
+  transition: transform 2s cubic-bezier(0.075, 1, 0.25, 1), opacity 1s;
+}
+
+.main-gallery {
+  width: 30vw;
+  column-width: 2em;
+  gap: var(--gap);
+  transform: scale(9);
+  will-change: transform;
+  transition: transform 2s cubic-bezier(0.075, 1, 0.25, 1), opacity 1s;
+}
+
+.gallery-item {
+  margin-bottom: var(--gap);
+  transform: scale(1.001);
+  will-change: transform;
+  transition: 0.3s;
+  &:hover,
+  &:focus {
+    transform: scale(1.03);
+  }
+}
+
+.gallery-img {
+  width: 100%;
+  display: block;
+}

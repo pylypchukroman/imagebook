@@ -41,6 +41,8 @@ function onSearchForm(e) {
   fetchImages(query, page, perPage)
     .then(({ data }) => {
       if (data.totalHits === 0) {
+        renderName(query);
+        loading.classList.add('visually-hiden');
         Notiflix.Notify.failure(
           'Sorry, there are no images matching your search query. Please try again.',
         );

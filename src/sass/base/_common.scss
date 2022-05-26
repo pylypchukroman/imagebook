@@ -1,0 +1,26 @@
+:root {
+  --gap: 0.5em;
+  --index: calc(1vw + 1vh);
+  --color-dark: #000;
+  --main-bg-color: #fff;
+  --serch-form-btn-bg: #242582;
+  --serch-forn-bg: #2f2fa2;
+  --main-shadow: rgba(0, 0, 0, 0.3);
+  --btn-shadow: rgba(84, 61, 230, 0.275);
+}
+.visually-hiden {
+  position: absolute;
+  white-space: nowrap;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  border: 0;
+  padding: 0;
+  clip: rect(0 0 0 0);
+  clip-path: inset(50%);
+  margin: -1px;
+}
+
+.hiden {
+  opacity: 0;
+}
