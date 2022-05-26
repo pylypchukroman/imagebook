@@ -34,6 +34,7 @@ function onSearchForm(e) {
   }, 5000);
 
   if (query === '') {
+    renderName('Empty serch');
     Notiflix.Notify.failure('The search string cannot be empty. Please specify your search query.');
     return;
   }
@@ -49,7 +50,7 @@ function onSearchForm(e) {
       } else {
         renderGallery(data.hits);
         renderName(query);
-        // Notiflix.Notify.success(`Hooray! We found ${data.totalHits} images.`);
+        Notiflix.Notify.success(`Hooray! We found ${data.totalHits} images. Just wait for loading`);
       }
     })
     .catch(error => console.log(error));
@@ -58,7 +59,6 @@ function onNewSearch() {
   document.location.reload();
 }
 window.onload = function () {
-  // document.body.classList.add('loaded');
   setTimeout(() => {
     Draggable.create('.main-gallery', {
       bounds: 'body',

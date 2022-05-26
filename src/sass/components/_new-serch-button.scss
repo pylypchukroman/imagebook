@@ -19,6 +19,18 @@
     color: #fff;
     transform: translateY(-7px);
   }
+  &:hover::after {
+    width: 100px;
+    position: absolute;
+    right: 90px;
+    top: 25px;
+    content: 'New Search';
+    background-color: var(--serch-forn-bg);
+    box-shadow: 0px 15px 20px var(--btn-shadow);
+    color: var(--search-text);
+    padding: 5px;
+    border-radius: 3px;
+  }
 }
 .new-search-img {
   width: 50px;
