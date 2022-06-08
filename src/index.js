@@ -53,7 +53,7 @@ function onSearchForm(e) {
       } else {
         renderGallery(data.hits);
         renderName(query);
-        SimpleLightbox = new SimpleLightbox('.main-gallery a').refresh();
+        SimpleLightbox = new SimpleLightbox('.gallery-wrapper a').refresh();
         Notiflix.Notify.success(`Hooray! We found ${data.totalHits} images. Just wait for loading`);
       }
     })
